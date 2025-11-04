@@ -1,13 +1,27 @@
 /* Register.css */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
 .auth-container {
   min-height: 100vh;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
+  align-items: center;
   position: relative;
-  overflow: auto;
+  padding: 2rem;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", sans-serif;
 }
@@ -19,7 +33,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  z-index: -1;
+  z-index: 0;
 }
 
 .gradient-orb {
@@ -72,9 +86,9 @@
 }
 
 .home-link {
-  position: absolute;
-  top: 30px;
-  left: 30px;
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -98,14 +112,13 @@
 .auth-card {
   background: white;
   border-radius: 20px;
-  padding: 48px;
+  padding: 2.5rem;
   width: 100%;
-  max-width: 440px;
+  max-width: 480px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 1;
   animation: slideUp 0.6s ease-out;
-  margin: auto;
 }
 
 @keyframes slideUp {
@@ -175,6 +188,7 @@
   transition: all 0.3s ease;
   background: white;
   color: #1a202c;
+  width: 100%;
 }
 
 .form-group input:focus {
@@ -196,10 +210,12 @@
 
 .password-input-wrapper {
   position: relative;
+  width: 100%;
 }
 
 .password-input-wrapper input {
   padding-right: 48px;
+  width: 100%;
 }
 
 .password-toggle {
@@ -225,7 +241,7 @@
 .error-message {
   font-size: 13px;
   color: #e53e3e;
-  margin-top: -4px;
+  margin-top: 0;
 }
 
 .checkbox-group {
@@ -275,6 +291,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  width: 100%;
 }
 
 .btn-primary:hover {
@@ -320,6 +337,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+  width: 100%;
 }
 
 .btn-google:hover {
@@ -352,10 +370,35 @@
   text-decoration: underline;
 }
 
+/* Additional styles specific to registration */
+.form-group:has(input[type="checkbox"]) .error-message {
+  margin-top: 4px;
+}
+
 /* Responsive Design */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1.5rem;
+  }
+
   .auth-card {
-    padding: 32px 24px;
+    max-width: 100%;
+    padding: 2rem;
+  }
+
+  .home-link {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .auth-container {
+    padding: 1rem;
+  }
+
+  .auth-card {
+    padding: 1.75rem 1.5rem;
     border-radius: 16px;
   }
 
@@ -364,8 +407,8 @@
   }
 
   .home-link {
-    top: 20px;
-    left: 20px;
+    top: 1rem;
+    left: 1rem;
     font-size: 13px;
     padding: 6px 12px;
   }
@@ -373,6 +416,7 @@
   .logo {
     width: 56px;
     height: 56px;
+    margin-bottom: 20px;
   }
 
   .auth-form {
@@ -382,25 +426,64 @@
 
 @media (max-width: 480px) {
   .auth-container {
-    padding: 16px;
+    padding: 0.75rem;
   }
 
   .auth-card {
-    padding: 24px 20px;
+    padding: 1.5rem 1.25rem;
   }
 
   .orb-1,
   .orb-2,
   .orb-3 {
     filter: blur(60px);
+    opacity: 0.4;
+  }
+
+  .auth-title {
+    font-size: 22px;
   }
 
   .auth-subtitle {
     font-size: 13px;
   }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .btn-primary,
+  .btn-google {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .checkbox-label {
+    font-size: 13px;
+  }
 }
 
-/* Additional styles specific to registration */
-.form-group:has(input[type="checkbox"]) .error-message {
-  margin-top: 4px;
+@media (max-width: 360px) {
+  .auth-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .auth-title {
+    font-size: 20px;
+  }
+
+  .form-group input {
+    padding: 9px 12px;
+    font-size: 13px;
+  }
 }
